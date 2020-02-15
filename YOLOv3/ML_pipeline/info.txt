@@ -1,0 +1,6 @@
+If subsequent training is needed, this folder can be used to contain the following folders:
+
+1. raw_data: Contains all of the images that will be used for training.  This folder is used as the source folder for VoTT.
+
+2. training_data: Contains all of the json files that coerrespond to annotations outputted from VoTT (this is the target folder for VoTT).
+

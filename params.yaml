@@ -1,0 +1,85 @@
+# CONTROLLER
+
+# car speed
+car_speed: 0.3 # In meters/second
+# safety buffer (to not run into objects)
+safety_buffer: 0.1 # In meters
+wheelbase: 0.25
+reuse_drive_cmd_duration: 0.5
+num_frames_turning_threshold: 3
+num_frames_turning_window: 10
+
+# Turning
+turn_steering_angle: deg(20) # left
+turn_duration: 3.2
+
+# horizontal line for turning
+theta_threshold: deg(10)
+rho_threshold: 2
+distance_to_horizontal_line_before_turning: 1.0 #meters
+distance_to_pedestrian_thr: 0.5 #meters
+
+# maximum distance TA car may be such that we still decide to follow it.
+follow_TA_max_distance_thr: 10
+
+# desired distance to TA car
+TA_car_desired_distance: 1
+
+# Gains for TA follower P control
+Kp1: 0.8
+Kp2: 1
+
+# Controller output topic
+drive_topic: "/vesc/ackermann_cmd_mux/input/navigation"
+
+# default look ahead distance (x direction) for goal controller
+default_lookahead: 1
+change_lane_lookahead: 2
+obstacle_thresh: 3
+normal_speed: 1
+cautious_speed: 0.5
+
+# VISION
+
+vision_output_topic: "/vision_output"
+labeled_image_topic: "/labeled_image"
+
+camera_topic:       "/zed/rgb/image_rect_color"
+camera_topic_left:  "/zed/left/image_rect_color"
+camera_topic_right: "/zed/right/image_rect_color"
+
+# Training Pipeline Directory
+training_images_dir: "/media/racecar/JetsonSSD-250/training_images/"
+
+# Object detection
+obj_detect_results_topic: "/object_detection_results"
+obj_detect_viz_topic: "/object_detection_viz"
+
+# Full YOLO 416
+# model_path: "$(find deep_learning)/YOLOv3/model_data/yolo.h5"
+# anchors_path: "$(find deep_learning)/YOLOv3/model_data/yolo_anchors.txt"
+
+# Tiny YOLO
+# model_path: "$(find deep_learning)/YOLOv3/model_data/yolov3-tiny-keras.h5"
+# anchors_path: "$(find deep_learning)/YOLOv3/model_data/tiny_yolo_anchors.txt"
+
+# Full YOLO on Custom classes
+model_path: "$(find deep_learning)/YOLOv3/model_data/trained_weights_final_updated.h5"
+#anchors_path: "$(find deep_learning)/YOLOv3/model_data/yolo_anchors.txt"
+
+# Tiny YOLO on Custom classes
+model_path: "$(find deep_learning)/YOLOv3/model_data/tiny-yolo_final.h5"
+anchors_path: "$(find deep_learning)/YOLOv3/model_data/tiny_yolo_anchors.txt"
+
+
+# classes_path: "$(find deep_learning)/YOLOv3/model_data/coco_classes.txt"
+classes_path: "$(find deep_learning)/YOLOv3/model_data/custom_classes.txt"
+
+iou_threshold: 0.5
+score_threshold: 0.3
+
+#Thresholds for object detection
+stop_sign_thr: 25000 #Minimum bbox area to call stop sign controller routines
+yield_sign_thr: 15000 #Minimum bbox area to call stop sign controller routines
+traffic_light_thr: 25000 #Minimum bbox area to call stop sign controller routines
+pedestrian_sign_thr: 8000 #Minimum bbox area to call stop sign controller routines

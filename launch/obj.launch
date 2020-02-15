@@ -1,0 +1,5 @@
+<launch>
+  <node name="object_detection_node" pkg="deep_learning" type="object_detection_node.py" output="screen">
+    <rosparam command="load" file="$(find deep_learning)/params.yaml" subst_value="True" />
+  </node>
+</launch>

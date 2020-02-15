@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find zed_wrapper)/launch/zed.launch" />
+  <node pkg="deep_learning" type="data_collect.py" name="Data_Collect" output="screen">
+    <rosparam command="load" file="$(find deep_learning)/params.yaml" />
+  </node>
+</launch>

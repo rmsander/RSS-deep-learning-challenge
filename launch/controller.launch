@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="deep_learning" type="controller.py" name="Controller" output="screen">
+    <rosparam command="load" file="$(find deep_learning)/params.yaml" />
+  </node>
+</launch>
