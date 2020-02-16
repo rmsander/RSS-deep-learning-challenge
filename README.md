@@ -1,4 +1,8 @@
-# Notes for 6.141 Deep Learning Challenge
+# 6.141 Deep Learning Challenge
+
+This challenge was completed collaboratively as a part of MIT's Robotics: Science and Systems course.  The goal of this challenge was to design a vision and control system for autonomous navigation in a miniaturized urban environment.
+
+This codebase was implemented and loaded onto our RACECAR platform, which operates using a Linux-based computer.  From here, we executed the following commands to prepare our RACECAR for autonomous navigation.
 
 ## Commands
 
@@ -35,3 +39,6 @@ alias cdeep='cd ~/racecar_ws/src/deep_learning'
 - The TA car mode is being hardcoded. If needed, set `self.TA = True` in `controller.py`.
 - If you want to record a rosbag for video, run `rosbag record /labeled_image/compressed`. Play it by `rosbag play your-bag-file.bag`. There's some delay when subscribing to the compressed topic, so the vision and obj nodes subscribe to the non-compressed one instead. It's probably best to just live screen recording if possible.
 - Fix the repo? Somehow the `.git` directory in `deep_learning` gets corrupted. You can't just delete the current folder because there are YOLO model weights (ignored by `.gitignore`). Maybe search in google/stackoverflow. Git clone new one, then replace the new's `.git` with the old corrupt `.git`?
+
+## Credits and Acknowledgements 
+This project would not have been possible without my wonderful team members: James Pruegsanusanak, Jordan Docter, Mahi Elango, and Bhavik Nagda.  I would also like to thank the Robotics: Science and Systems staff for their support, mentorship, and guidance throughout this project.
