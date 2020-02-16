@@ -4,6 +4,16 @@ This challenge was completed collaboratively as a part of MIT's Robotics: Scienc
 
 This codebase was implemented and loaded onto our RACECAR platform, which operates using a Linux-based computer.  From here, we executed the following commands to prepare our RACECAR for autonomous navigation.
 
+## Overview of System
+
+As mentioned above, our block diagram for this system is divided into vision and control:
+
+![Block Diagram](images/block_diagram.png)
+
+Below is our object detection display using our car's ZED camera and object detection system:
+
+![Heads-up Display](images/hud_display.png)
+
 ## Commands
 
 For convenience, add this to your VM's `~/.bashrc`:
